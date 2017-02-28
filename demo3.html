@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三栏式布局</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style lang="css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+        
+        .main {
+            width: auto;
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        .main:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .main,
+        .team,
+        .team-logo,
+        .person-logo,
+        .content {
+            background: #eee;
+            border: 1px solid #999;
+            box-sizing: border-box;
+        }
+        
+        .team {
+            width: 200px;
+            padding: 20px;
+            float: left;
+            background: #fff;
+        }
+        .team p{
+            margin:0;
+        }
+        .team-logo {
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 20px;
+        }
+        .personal {
+            width: 120px;
+            padding: 20px 0 0;
+            float: right;
+            border: 1px solid #999;
+            background: #fff;
+        }
+        
+        .person-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 0 20px 20px;
+            border: 1px solid #999;
+        }
+        
+        .content {
+            padding: 20px;
+            width: auto;
+            margin: 0 140px 0 220px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="team">
+            <div class="team-logo"></div>
+            <p>团队名称</p>
+        </div>
+        <div class="personal">
+            <div class="person-logo"></div>
+            <div class="person-logo"></div>
+            <div class="person-logo"></div>
+            <div class="person-logo"></div>
+        </div>
+        <section class="content">
+            <h3>介绍</h3>
+            <p>内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1内容1容1内容1内容1内容1内容1内容1内内容1内容1内容1内容1内容1内容1内容1内容1容1内容1内容1内容1内容1内容1内</p>
+            <p>内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2</p>
+            <p>内容3内3内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2内容2</p>
+        </section>
+    </div>
+</body>
+
+</html>
