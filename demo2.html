@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ccc;
+            font-size: 18px;
+        }
+        
+        p {
+            text-indent: 2em;
+        }
+        
+        header {
+            background: #787878;
+            position: relative;
+            height: 102px;
+            width: 100%;
+        }
+        
+        header .nav {
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px 30px;
+        }
+        
+        header .nav-logo {
+            float: left;
+        }
+        
+        header .nav-list {
+            float: right;
+        }
+        
+        header .nav-list ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header .nav-list ul li {
+            float: left;
+            margin-left: 40px;
+            line-height: 82px;
+        }
+        
+        header .nav-list ul li a {
+            color: #fff;
+        }
+        
+        header .nav-list ul li:last-child a {
+            color: #ccc;
+        }
+        
+        .main {
+            margin: 60px auto;
+            width: 90%;
+        }
+        
+        .content {
+            margin-bottom: 60px;
+            background-color: #fff;
+            padding: 40px 20px;
+            border: 1px solid #bbb;
+            box-shadow: 1px 1px 1px #000;
+            border-radius: 3px;
+        }
+        
+        .content p:first-of-type {
+            text-indent: 0;
+            color: #ccc;
+            font-size: 16px;
+        }
+        
+        .main .content:nth-child(2) ul {
+            list-style: none;
+            margin-bottom: 0;
+        }
+        
+        .main .content:nth-child(2) ul li {
+            margin-bottom: 10px;
+        }
+        
+        .main .content:nth-child(2) ul li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .content .content-images {
+            padding: 20px;
+            border: 1px solid #787878;
+            width: 300px;
+            margin: 20px 0 0 2em;
+            text-align: center;
+        }
+        
+        .content .content-images p {
+            color: #787878;
+            font-size: 18px;
+        }
+        
+        .content .content-images img {
+            width: 100%;
+        }
+        
+        .content table {
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        
+        .content table th,
+        td {
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+        }
+        
+        .content table thead {
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+        }
+        
+        .content table tfoot {
+            background-color: #ccc;
+        }
+        
+        .content table tr {
+            width: 100%;
+        }
+        
+        .content table tr th {
+            width: 45%;
+        }
+        
+        .content form .content-input {
+            width: 620px;
+            margin: 10px auto 0;
+        }
+        
+        .content form .content-input:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .content form .content-input .input-explain {
+            float: left;
+            text-align: right;
+            width: 300px;
+        }
+        
+        .content form .input-explain p {
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+        
+        .main .content form p {
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .content form .content-input .input-text {
+            float: right;
+            width: 300px;
+            font-size: 16px;
+        }
+        
+        .content form .content-input .input-text p {
+            margin-top: 5px;
+        }
+        .form-smbtn{
+            border:0;
+            color:#fff;
+            background-color:#3355d0;
+            width:100%;
+            text-align: center;
+            padding: 10px 0;
+            margin:20px auto 0;
+            font-weight:600;
+            font-size: 16px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="nav-logo">
+                <img src="http://ife.baidu.com/2017/asset/common/img/logo_a3b4064.png" alt="">
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li><a href="#">导航链接1</a></li>
+                    <li><a href="#">导航链接2</a></li>
+                    <li><a href="#">导航链接3</a></li>
+                    <li><a href="#">导航链接4</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="content">
+            <h2>文章一级标题</h2>
+            <h3>二级标题</h3>
+            <p>作者：××× 时间：0000:00:00</p>
+            <p>这是内容这是内容这是内容这是内容这是内容这是内容这是内容<br />这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+            <img src="http://www.mymili.cn/upload/image/20160509/20160509101100_3517.jpg" alt="">
+            <p>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+        </div>
+        <div class="content">
+            <h2>文章一级标题</h2>
+            <h3>二级标题</h3>
+            <p>作者：××× 时间：0000:00:00</p>
+            <p>这是内容这是内容这是内<a href="#">这是一个链接</a>容这是内容这是内容这是内容这是内容<br />这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</p>
+            <img src="http://www.mymili.cn/upload/image/20160509/20160509101100_3517.jpg" alt="">
+            <ul>
+                <li>列表项目1</li>
+                <li>列表项目2</li>
+                <li>列表项目3</li>
+            </ul>
+        </div>
+        <div class="content">
+            <h2>图片</h2>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+            <div class="content-images">
+                <p>好看的图片</p>
+                <img src="http://www.vue-js.com/public/images/vue.png" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h2>文章一级标题</h2>
+            <h3>二级标题</h3>
+            <p>作者：××× 时间：0000:00:00</p>
+            <ol>
+                <li>排名1</li>
+                <li>排名2</li>
+                <li>排名3</li>
+            </ol>
+            <p>这是一个表格</p>
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>表头</th>
+                        <th>表头</th>
+                        <th>表头</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>表内单元格内容</td>
+                        <td>表内单元格内容</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr>
+                        <td>表内单元格内容</td>
+                        <td>表内单元格内容</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr>
+                        <td>表内单元格内容</td>
+                        <td>表内单元格内容</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr>
+                        <td>表内单元格内容</td>
+                        <td>表内单元格内容</td>
+                        <td>操作</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>总计</td>
+                        <td colspan="2">1000</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="content">
+            <h2>这是侧边栏的标题</h2>
+            <form action="#">
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>请输入邮箱地址</p>
+                    </div>
+                    <div class="input-text">
+                        <input type="text" value="这是一个文本输入框">
+                        <p>邮箱地址请按要求输入</p>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>请输入密码</p>
+                    </div>
+                    <div class="input-text">
+                        <input type="password" value="这是一个文本输入框">
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>请重复输入密码</p>
+                    </div>
+                    <div class="input-text">
+                        <input type="password" value="这是一个文本输入框">
+                        <p>密码为6到16位英文数字</p>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>性别</p>
+                    </div>
+                    <div class="input-text">
+                        <input type="radio" value="男" id="nan" name="sex">
+                        <label for="nan">男</label>
+                        <input type="radio" value="女" id="nv" name="sex">
+                        <label for="nv">女</label>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>城市</p>
+                    </div>
+                    <div class="input-text">
+                        <select name="city" id="city">
+                            <option value="北京">北京</option>
+                            <option value="上海">上海</option>
+                            <option selected="selected" value="深圳">深圳</option>
+                            <option value="广州">广州</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>爱好</p>
+                    </div>
+                    <div class="input-text">
+                        <input type="checkbox" name="hobby" id="motion" value="运动"><label for="motion">运动</label>
+                        <input type="checkbox" name="hobby" id="art"><label for="art">艺术</label>
+                        <input type="checkbox" name="hobby" id="science"><label for="science">科学</label>
+                    </div>
+                </div>
+                <div class="content-input">
+                    <div class="input-explain">
+                        <p>个人描述</p>
+                    </div>
+                    <div class="input-text">
+                        <textarea name="pp" id="pp" cols="60" rows="5"></textarea>
+                    </div>
+                </div>
+                <input type="submit" value="确认提交" class="form-smbtn">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
