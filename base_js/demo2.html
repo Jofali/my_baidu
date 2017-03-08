@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>IFE JavaScript Task 01</title>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <title>IFE JavaScript Task 01</title>
+</head>
+
 <body>
 
   <h3>污染城市列表</h3>
   <ul id="aqi-list">
-<!--   
+    <!--   
     <li>第一名：福州（样例），10</li>
       <li>第二名：福州（样例），10</li> -->
   </ul>
 
-<script type="text/javascript">
+  <script type="text/javascript">
+    var arr = [undefined];
+    var arr1 = new Array(1);
 
-var aqiData = [
-  ["北京", 90],
-  ["上海", 50],
-  ["福州", 10],
-  ["广州", 50],
-  ["成都", 90],
-  ["西安", 100]
-];
-(function () {
-   aqiData.forEach(function(value,index,array){
-     console.log(value.sort(sortNumber))
-   })
-})();
-
-function sortNumber(a,b)
-{
-return a - b
-}
-</script>
+    var aqiData = [
+      ["北京", 90],
+      ["上海", 50],
+      ["福州", 10],
+      ["广州", 50],
+      ["成都", 90],
+      ["西安", 100]
+    ];
+    (function () {
+      var arr = [];
+      var oul = document.getElementById('aqi-list');
+      var ohtml = '';
+      var x;
+      aqiData.forEach(function (value, index, array) {
+        if (parseInt(value[1]) > 60) {
+          arr.push(value);
+        }
+      });
+      for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+          if (arr[i][1] > arr[j][1]) {
+            x = arr[j];
+            arr[j] = arr[i];
+            arr[i] = x;
+          }
+        }
+      };
+      for (var i = 0; i < arr.length; i++) {
+        ohtml += '<li>第' + (i + 1) + '名' + arr[i].join(': ') + '</li>';
+      };
+      oul.innerHTML = ohtml;
+    })();
+    function sortNumber(a, b) {
+      return a - b
+    }
+  </script>
 </body>
+
 </html>
