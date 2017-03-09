@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li {
+            list-style: none;
+            padding: 10px;
+            background: #ccc;
+            margin: 0 5px;
+            display: inline-block;
+            width: 20px;
+            vertical-align: text-bottom;
+            transition: all .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="get" type="text" />
+    <button>add left</button>
+    <button>add right</button>
+    <button>delete left</button>
+    <button>delete right</button>
+    <input type="button" value="sort" id="sortarr">
+    <input type="button" value="Disturb sort" id="disturb">
+
+    <ul id="view">
+
+    </ul>
+    <script>
+        (function () {
+            var btn = document.querySelectorAll('button');
+            var view = document.querySelector('#view');
+            var sortbtn = document.querySelector('#sortarr');
+            var arr = [98, 30, 56, 58, 34, 10];
+            var state = [];
+            var timer = null;
+            setHtml(arr, 0);
+            // 排序事件绑定
+            sortbtn.onclick = function () {
+                sortArr(arr);
+                timer = setInterval(function () { setHtml(state, 1) }, 100);
+            }
+            // 数组增删事件绑定
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].index = i;
+                btn[i].onclick = function () {
+                    // 对数组长度进行过滤
+                    if (arr.length >= 60) {
+                        alert('Range less than 60')
+                        return false;
+                    }
+                    var get = parseInt(document.getElementById('get').value);
+                    if (checkValue(get) != false) {
+                        switch (this.index) {
+                            case 0:
+                                arr.unshift(get)
+                                break;
+                            case 1:
+                                arr.push(get)
+                                break;
+                            case 2:
+                                var dearr = arr.shift()
+                                alert('Delete: ' + dearr)
+                                break;
+                            case 3:
+                                var dearr = arr.pop()
+                                alert('Delete: ' + dearr)
+                                break;
+                        }
+                    }
+                    setHtml(arr, 0)
+                }
+            }
+            // 输入值过滤
+            function checkValue(value) {
+                value = parseInt(value);
+                if (isNaN(value)) {
+                    alert('Please input number');
+                    return false;
+                } else if (value <= 100 && value >= 10) {
+                    return value;
+                } else {
+                    alert('Range in 10-100');
+                    return false;
+                }
+            }
+            // 渲染函数  id为0：渲染原数组，id为非0则渲染state（记录冒泡排序时原数组的状态）
+            function setHtml(arr, id) {
+                var ohtml = '';
+                var arrset = [];
+                if (id === 0) {
+                    for (var i = 0; i < arr.length; i++) {
+                        ohtml += '<li style="height:' + arr[i] + 'px">' + arr[i] + '</li>';
+                    }
+                } else {
+                    arrset = arr.shift();
+                    // 判断 arrset是否为undefined，避免渲染空的ohtml
+                    if (arrset === undefined) {
+                        clearInterval(timer);
+                        return alert('Success');
+                    } else {
+                        for (var i = 0; i < arrset.length; i++) {
+                            ohtml += '<li style="height:' + arrset[i] + 'px">' + arrset[i] + '</li>';
+                        }
+                    }
+                }
+                view.innerHTML = ohtml;
+            }
+            // 冒泡排序
+            function sortArr(a) {
+                var x = '';
+                for (var i = 0; i < a.length; i++) {
+                    for (var j = 0; j < a.length; j++) {
+                        if (a[i] < a[j]) {
+                            x = a[j];
+                            a[j] = a[i];
+                            a[i] = x;
+                            state.push(JSON.parse(JSON.stringify(arr)));  // 把每一次排序后的数组状态记录到state
+                        }
+                    }
+                }
+            }
+        })()
+    </script>
+</body>
+
+</html>
