@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1</title>
+    <style lang="css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ccc;
+        }
+
+        .main {
+            margin: 100px auto;
+            background: #fff;
+            width: 460px;
+            box-sizing: border-box;
+            padding: 50px;
+            box-shadow: 0 0 20px #000;
+            font-size: 16px;
+            font-family: "微软雅黑";
+        }
+
+        .section {
+            padding: 10px 0;
+        }
+
+        .section:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        p {
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .name {
+            float: left;
+            padding: 10px 20px 0 0;
+        }
+
+        .put {
+            float: left;
+        }
+
+        .put>input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 285px;
+        }
+
+        #submit {
+            color: #fff;
+            background: #1a68cb;
+            width: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 0;
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="section">
+            <div class="name">名称</div>
+            <div class="put">
+                <input type="text" class="test">
+                <p class="feedback">必填，长度为4~16个字符</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="name">名称</div>
+            <div class="put">
+                <input type="text" class="test">
+                <p class="feedback">每个</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="name">名称</div>
+            <div class="put">
+                <input type="text" class="test">
+                <p class="feedback">每个</p>
+            </div>
+        </div>
+        <div class="section">
+            <button id="submit">提交</button>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+
+
+            for (var i = 0; i < $(".test").length; i++) {
+                var text = $(".test")[i];
+                text.index = i;
+
+                text.onfocus = function () {
+                    this.style.borderColor = "#1a68cb"
+                };
+
+                text.onblur = function () {
+                    fb(this.index)
+                }
+
+            }
+
+            $("#submit")[0].onclick = function () {
+                var seen = true;
+
+                for (var i = 0; i < $(".test").length; i++) {
+                    fb(i);
+                    if (!check($(".test")[i].value)) {
+                        seen = false
+                    }
+                };
+
+                seen ? alert("提交成功") : alert("提交失败")
+
+            }
+
+
+        }
+
+        function $(a) {
+            return document.querySelectorAll(a);
+        }
+
+        function check(a) {
+            var x = 0;
+            for (var i = 0; i < a.length; i++) {
+                if (a.charCodeAt(i) < 128 && a.charCodeAt(i) >= 0) {
+                    x++;
+                } else {
+                    x += 2;
+                }
+            }
+            if (x >= 4 && x <= 16) {
+                return true;
+            } else {
+                return false;
+            };
+        }
+
+        function fb(i) {
+            if (check($(".test")[i].value)) {
+                $(".feedback")[i].innerHTML = "名称格式正确";
+                $(".feedback")[i].style.color = "green";
+                $(".test")[i].style.borderColor = "#ccc";
+            } else {
+                $(".feedback")[i].innerHTML = "必填，长度为4~16个字符";
+                $(".feedback")[i].style.color = "red";
+                $(".test")[i].style.borderColor = "red";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
