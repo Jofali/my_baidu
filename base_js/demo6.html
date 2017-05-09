@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li {
+            float: left;
+            list-style: none;
+            padding: 10px;
+            background: #ccc;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="get" cols="30" rows="1"></textarea>
+    <button>add left</button>
+    <button>add right</button>
+    <button>delete left</button>
+    <button>delete right</button>
+    <ul id="view">
+
+    </ul>
+    <script>
+        (function () {
+            var btn = document.querySelectorAll('button');
+            var view = document.querySelector('#view');
+            var arr = [1, 2, 3, 4, 56, 34];
+            setHtml(arr);
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].index = i;
+                btn[i].onclick = function () {
+                    var get = document.getElementById('get').value;
+                    if (checkValue(get) != false) {
+                        switch (this.index) {
+                            case 0:
+                                arr.unshift(get)
+                                break;
+                            case 1:
+                                arr.push(get)
+                                break;
+                            case 2:
+                                var dearr = arr.shift()
+                                alert('Delete: '+ dearr)
+                                break;
+                            case 3:
+                                var dearr = arr.pop()
+                                alert('Delete: '+dearr)
+                                break;
+                        }
+                    }
+                    setHtml(arr)
+                }
+            }
+            function checkValue(value) {
+                value.split("");
+                if (isNaN(value)) {
+                    alert('Please input number');
+                    return false;
+                } else {
+                    return value;
+                }
+            }
+
+            function setHtml(arr) {
+                var ohtml = '';
+                for (var i = 0; i < arr.length; i++) {
+                    ohtml += '<li>' + arr[i] + '</li>';
+                }
+                view.innerHTML = ohtml;
+            }
+        })()
+    </script>
+</body>
+
+</html>
