@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="css">
+        input {
+            color: #1a68cb;
+        }
+
+        .stu .unstu {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="control">
+            <input type="radio" name="sc" value="在校生">
+            <label for="在校生">在校生</label>
+            <input type="radio" name="sc" value="非在校生">
+            <label for="非在校生">非在校生</label>
+        </div>
+        <div class="content" id="render">
+            <div class="stu">
+                <span>学校</span>
+                <select name="address" id="address">
+                    <option value="0">请选择</option>
+                    <option value="1">北京</option>
+                    <option value="2">河南</option>
+                    <option value="3">广东</option>
+                </select>
+                <select name="school" id="school"></select>
+            </div>
+            <div class="unstu">
+                <span>就业单位</span>
+                <input type="text">
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var radio = document.querySelectorAll("input");
+            var address = document.querySelector("#address");
+            var school = document.querySelector("#school");
+            var data = [
+                ["请选择"],
+                ["北京大学", "清华大学", "政法大学"],
+                ["郑州大学", "河南大学", "轻工业学院"],
+                ["深圳大学", "中山大学", "华南理工大学"]
+            ];
+            for (var i = 0; i < data[address.value].length; i++) {
+                var newoption = document.createElement("option");
+                newoption.value = i;
+                newoption.text = data[address.value][i];
+                school.appendChild(newoption);
+            }
+            for (var i = 0; i < 2; i++) {
+                radio[i].index = i;
+                if (radio[i].checked) {
+                    render(i);
+                }
+                radio[i].onclick = function () {
+                    if (this.checked) {
+                        render(this.index);
+                    }
+                }
+            }
+            address.onchange = function () {
+                var a = this.value;
+                school.innerHTML = "";
+                for (var i = 0; i < data[a].length; i++) {
+                    var newoption = document.createElement("option");
+                    newoption.value = i;
+                    newoption.text = data[a][i];
+                    school.appendChild(newoption);
+                }
+            }
+        }
+        function render(a) {
+            var rd = document.querySelector("#render");
+            if (a === 0) {
+                document.querySelectorAll(".stu")[0].style.display = "block";
+                document.querySelectorAll(".unstu")[0].style.display = "none";
+            } else if (a === 1) {
+                document.querySelectorAll(".unstu")[0].style.display = "block";
+                document.querySelectorAll(".stu")[0].style.display = "none";
+            }
+        }
+
+        function addOption(a) {
+        }
+    </script>
+</body>
+
+</html>
