@@ -142,10 +142,10 @@
                     alert("系统异常");
             }
         }
-        
+
         // 边界检测
         function discover() {
-            if (arguments[0] > 100 || arguments[0] < 0) {
+            if (arguments[0] >= 100 || arguments[0] < 0) {
                 alert("出界了！");
                 ini();
                 return false;
@@ -157,6 +157,9 @@
         // 渲染听指令的小方格
         function renderObj() {
             data = [arguments[0], arguments[1]];
+            if(!discover(data[0])){
+                return false;
+            }
             $(arguments[0]).style.backgroundColor = "red";
             switch (arguments[1]) {
                 case 1:
