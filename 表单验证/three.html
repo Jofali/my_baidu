@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>听话的小方块</title>
+    <style lang="css">
+        .row>span:first-child{
+            border:0;
+            display:inline-block;
+            width:50px;
+        }
+        .row>span{
+            display: inline-block;
+            width:50px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            border-bottom:1px solid #000;
+            box-sizing: border-box;
+            margin:0;
+            padding: 0;
+        }
+        .low>span{
+            display: block;
+            width:555px;
+            height:50px;
+            text-align: left;
+            line-height: 50px;
+            border-right:1px solid #000;
+            box-sizing: border-box;
+            margin:0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="main">
+        <div class="row">
+        </div>
+        <div class="low"></div>
+    </div>
+    <div class="begin">
+        <input type="text">
+        <button>执行</button>
+    </div>
+    <script>
+        window.onload = function (){
+            var row = document.querySelectorAll(".row")[0];
+            var low = document.querySelectorAll(".low")[0];
+            for(var i = 1;i < 11;i++){
+                var news = document.createElement("span");
+                news.innerHTML = i;
+                row.appendChild(news);
+                var news = document.createElement("span");
+                news.innerHTML = i;
+                low.appendChild(news);
+            }
+        }
+    </script>
 </body>
 </html>

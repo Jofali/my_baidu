@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#main{
+    width:604px;
+    margin:0 auto;
+}
+#x{
+    width:550px;
+    height:50px;
+    margin:0 auto;
+    text-align: center;
+    line-height: 50px;
+}
+.y,.x{
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+    float: left;
+}
+#y{
+    width:50px;
+    height:550px;
+    float: left;
+    text-align: center;
+    line-height: 50px;
+}
+#content{
+    width:500px;
+    height:500px;
+    background: #fff;
+    border:2px solid #333;
+    float: left;
+}
+.box{
+    width:50px;
+    height:50px;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+}
+#input{
+    width:500px;
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+    input{
+        border:2px solid #ccc;
+        padding: 10px 30px;
+        &:focus{
+            border:2px solid #1a68cb;
+        }
+    }
+    button{
+        padding: 10px 30px;
+    }
+}
+.left{
+    &:after{
+        content:'';
+        display: inline-block;
+        width:10px;
+        height:48px;
+        background: blue;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+}
+.top{
+    &:after{
+        content:'';
+        display: inline-block;
+        width:48px;
+        height:10px;
+        background: blue;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+}
+.right{
+    &:after{
+        content:'';
+        display: inline-block;
+        width:10px;
+        height:48px;
+        background: blue;
+        position: absolute;
+        top:0;
+        right:0;
+    }
+}
+.bottom{
+    &:after{
+        content:'';
+        display: inline-block;
+        width:48px;
+        height:10px;
+        background: blue;
+        position: absolute;
+        bottom:0;
+        left:0;
+    }
+}
